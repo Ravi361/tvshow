@@ -1,0 +1,44 @@
+<%-include('../partials/header')%>
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-sm-12" style="margin-left: 4%;">
+        <h3>DETAIL SHOW</h3>
+        <form class="form-inline" method="POST" action="/show">
+            <div class="form-group">
+                <input class="form-control" type="text" name="showname" placeholder="Show name">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success">Search</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<%if(x==1){%>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+    <div class="col-lg-6"><strong>Name</strong>:<%=show[0].show.name%> </div>
+    <div class="col-lg-6"><strong>Type</strong>:<%=show[0].show.type%></div>
+    <div class="col-lg-6"><strong>Language</strong>:<%=show[0].show.language%></div>
+    <div class="col-lg-6"> <strong>Status</strong>:<%=show[0].show.status%></div>
+    <div class="col-lg-6"> <strong>Premiered</strong>:<%=show[0].show.premiered%></div>
+    <div class="col-lg-6"> <strong>Time</strong>:<%=show[0].show.schedule.time%></div>
+    <div class="col-lg-6"> <strong>Days</strong>:<%show[0].show.schedule.days.forEach(function(day){%><%=day%> <%})%></div>
+    <div class="col-lg-6"><strong>Channel</strong>:<%=show[0].show.network.name%></div>
+    <div class="col-lg-6"><strong>Country</strong>:<%=show[0].show.network.country.name%></div>
+    <div class="col-lg-6"> <strong>Summary</strong>:<%=show[0].show.summary%></div>
+    </div>
+    </div>
+</div>
+<%if(x==1){%>
+    <div class="container">
+        <div class="jumbotron">
+            <%if(show[0].show.image!=null){%>
+                <img class="img-thumbnail" style="margin-left:30%;width: 41%;" src='<%=show[0].show.image.original%>'>
+                <%}%>
+            <%}%>
+        </div>
+    </div>
+    <%}%>
+<%-include('../partials/footer')%>
